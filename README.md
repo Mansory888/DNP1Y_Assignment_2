@@ -2,7 +2,9 @@
 
 ## The system:
 In this assignment you will create a Blazor-server web page to manage data and view statistics about families.
-The adults have jobs. The children have interests, and pets.
+The adults have jobs. The children have interests, and pets. 
+
+The data will be saved separately in a server and the server/client connection will be done in Rest
 
 ## Minimum requirements:
 - Be able to add a new Adult to persistent storage (i.e. the file, through the FileContext class).
