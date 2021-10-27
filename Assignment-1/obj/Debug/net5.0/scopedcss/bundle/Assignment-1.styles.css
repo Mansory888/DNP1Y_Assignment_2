@@ -1,0 +1,266 @@
+/* _content/Assignment-1/Pages/Login.razor.rz.scp.css */
+body[b-sd7k2atav5] {font-family: Arial, Helvetica, sans-serif;}
+form[b-sd7k2atav5] {border: 3px solid #f1f1f1;}
+
+input[type=text][b-sd7k2atav5], input[type=password][b-sd7k2atav5] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button[b-sd7k2atav5] {
+    background-color: blueviolet;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+button:hover[b-sd7k2atav5] {
+    opacity: 0.8;
+}
+
+.cancelbtn[b-sd7k2atav5] {
+    width: auto;
+    padding: 10px 18px;
+    background-color: cornflowerblue;
+}
+
+.container[b-sd7k2atav5] {
+    padding: 16px;
+}
+
+.BigBox[b-sd7k2atav5]{
+    margin: auto;
+    width: 40%;
+    margin-top: 50px;
+}
+
+span.psw[b-sd7k2atav5] {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw[b-sd7k2atav5] {
+        display: block;
+        float: none;
+    }
+    .cancelbtn[b-sd7k2atav5] {
+        width: 100%;
+    }
+}
+/* _content/Assignment-1/Pages/ManageAdults.razor.rz.scp.css */
+
+.left[b-2xldlh82uz]{
+    float: left;
+    margin: 20px;
+}
+
+.right[b-2xldlh82uz]{
+    float: left;
+    margin: 20px;
+}
+
+
+
+/* _content/Assignment-1/Pages/Register.razor.rz.scp.css */
+body[b-ynz2b7y80n] {font-family: Arial, Helvetica, sans-serif;}
+form[b-ynz2b7y80n] {border: 3px solid #f1f1f1;}
+
+input[type=text][b-ynz2b7y80n], input[type=password][b-ynz2b7y80n] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button[b-ynz2b7y80n] {
+    background-color: blueviolet;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+button:hover[b-ynz2b7y80n] {
+    opacity: 0.8;
+}
+
+.cancelbtn[b-ynz2b7y80n] {
+    width: auto;
+    padding: 10px 18px;
+    background-color: cornflowerblue;
+}
+
+.container[b-ynz2b7y80n] {
+    padding: 16px;
+}
+
+.BigBox[b-ynz2b7y80n]{
+    margin: auto;
+    width: 40%;
+    margin-top: 50px;
+}
+
+span.psw[b-ynz2b7y80n] {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw[b-ynz2b7y80n] {
+        display: block;
+        float: none;
+    }
+    .cancelbtn[b-ynz2b7y80n] {
+        width: 100%;
+    }
+}
+/* _content/Assignment-1/Shared/MainLayout.razor.rz.scp.css */
+.page[b-ihrq5r4ny3] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main[b-ihrq5r4ny3] {
+    flex: 1;
+}
+
+.sidebar[b-ihrq5r4ny3] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-ihrq5r4ny3] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-ihrq5r4ny3]  a, .top-row .btn-link[b-ihrq5r4ny3] {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+    }
+
+    .top-row a:first-child[b-ihrq5r4ny3] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-ihrq5r4ny3] {
+        display: none;
+    }
+
+    .top-row.auth[b-ihrq5r4ny3] {
+        justify-content: space-between;
+    }
+
+    .top-row a[b-ihrq5r4ny3], .top-row .btn-link[b-ihrq5r4ny3] {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-ihrq5r4ny3] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-ihrq5r4ny3] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-ihrq5r4ny3] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .main > div[b-ihrq5r4ny3] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* _content/Assignment-1/Shared/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-u03wp0xpf6] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row[b-u03wp0xpf6] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-u03wp0xpf6] {
+    font-size: 1.1rem;
+}
+
+.oi[b-u03wp0xpf6] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-u03wp0xpf6] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-u03wp0xpf6] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-u03wp0xpf6] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-u03wp0xpf6]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+.nav-item[b-u03wp0xpf6]  a.active {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.nav-item[b-u03wp0xpf6]  a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-u03wp0xpf6] {
+        display: none;
+    }
+
+    .collapse[b-u03wp0xpf6] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}

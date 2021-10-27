@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Assignment_1</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Update="Pages\Login.razor.css">
+        <DependentUpon>Test.razor</DependentUpon>
+      </None>
+    </ItemGroup>
+
+</Project>

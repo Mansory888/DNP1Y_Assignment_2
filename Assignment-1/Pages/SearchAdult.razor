@@ -1,0 +1,139 @@
+﻿@page "/SearchAdult"
+@using Assignment_1.Data
+@using Models
+@inject ITFamilyManager FamilyManager;
+
+<h3>SearchAdult</h3>
+
+<div>
+    <p style="float: left; margin: 20px">
+        Filter by First Name: <input type="text" @oninput="(arg) => FilterByFirstName(arg)" style="width: 50px"/>
+    </p>
+    
+    <p style="float: left; margin: 20px">
+        Filter by Last Name: <input type="text" @oninput="(arg) => FilterByLastName(arg)" style="width: 50px"/>
+    </p>
+    
+    <p style="float: left; margin: 20px">
+        Filter by Age: <input type="number" @oninput="(arg) => FilterByAge(arg)" style="width: 50px"/>
+    </p>
+</div>
+
+@if (AdultsToShow == null)
+{
+    <p>
+        <em>Loading... </em>
+    </p>
+} else if (!AdultsToShow.Any())
+{
+    <p>
+        <em>No adults exist</em>
+    </p>
+}
+else
+{
+    <table class="table ">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Hair Color</th>
+            <th>Eye Color</th>
+            <th>Age</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Sex</th>
+            <th>Job</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var adult in AdultsToShow)
+        {
+            <tr>
+                <td>@adult.FirstName</td>
+                <td>@adult.LastName</td>
+                <td>@adult.HairColor</td>
+                <td>@adult.EyeColor</td>
+                <td>@adult.Age</td>
+                <td>@adult.Weight</td>
+                <td>@adult.Height</td>
+                <td>@adult.Sex</td>
+                <td>@string.Join(",", adult.JobTitle)</td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private IList<Adult> AllAdults;
+    private IList<Adult> AdultsToShow;
+
+    private string? FName;
+    private string? LName;
+    private int? Age;
+
+    protected override async Task OnInitializedAsync()
+    {
+        AllAdults = FamilyManager.getAdults();
+        AdultsToShow = AllAdults;
+    }
+
+    private void FilterByFirstName(ChangeEventArgs args)
+    {
+        FName = null;
+
+        try
+        {
+            FName = args.Value.ToString();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        ExecuteFilter();
+    }
+
+    private void FilterByLastName(ChangeEventArgs args)
+    {
+        LName = null;
+
+        try
+        {
+            LName = args.Value.ToString();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        ExecuteFilter();
+    }
+
+    private void FilterByAge(ChangeEventArgs args)
+    {
+        Age = null;
+
+        try
+        {
+            Age = int.Parse(args.Value.ToString());
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        ExecuteFilter();
+    }
+
+    private void ExecuteFilter()
+    {
+        AdultsToShow = AllAdults.Where(t => (FName != null && t.FirstName == FName || FName == null || FName == "") &&
+                                            (LName != null && t.LastName == LName || LName == null || LName == "") &&
+                                            (Age != null && t.Age == Age || Age == null)).ToList();
+    }
+
+
+
+
+}

@@ -1,0 +1,58 @@
+body[b-sd7k2atav5] {font-family: Arial, Helvetica, sans-serif;}
+form[b-sd7k2atav5] {border: 3px solid #f1f1f1;}
+
+input[type=text][b-sd7k2atav5], input[type=password][b-sd7k2atav5] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button[b-sd7k2atav5] {
+    background-color: blueviolet;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+button:hover[b-sd7k2atav5] {
+    opacity: 0.8;
+}
+
+.cancelbtn[b-sd7k2atav5] {
+    width: auto;
+    padding: 10px 18px;
+    background-color: cornflowerblue;
+}
+
+.container[b-sd7k2atav5] {
+    padding: 16px;
+}
+
+.BigBox[b-sd7k2atav5]{
+    margin: auto;
+    width: 40%;
+    margin-top: 50px;
+}
+
+span.psw[b-sd7k2atav5] {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw[b-sd7k2atav5] {
+        display: block;
+        float: none;
+    }
+    .cancelbtn[b-sd7k2atav5] {
+        width: 100%;
+    }
+}

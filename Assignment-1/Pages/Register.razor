@@ -1,0 +1,73 @@
+﻿@page "/register"
+@namespace LoginComponent
+@using Assignment_1.Data
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+@inject ITUserInterface UserInterface;
+
+<AuthorizeView>
+    <NotAuthorized>
+
+        <body>
+        <h2 style="text-align: center">Register Form</h2>
+
+        <div class="BigBox">
+            <form >
+                <div class="container">
+                    <label for="uname" >
+                        <b>Username</b>
+                    </label>
+                    <input type="text" placeholder="Enter Username" name="uname" @bind-value="username" required>
+
+                    <label for="psw">
+                        <b>Password</b>
+                    </label>
+                    <input type="password" placeholder="Enter Password" name="psw" @bind-value="password" required>
+                    
+                    <label style="margin-top:20px" >
+                        <b>Birth Year</b>
+                    </label>
+                    <input type="number" style="margin-left: 10px"  @bind-value="BirthYear" required>
+
+                </div>
+            </form>
+
+
+            <button @onclick="RegisterUser" >Register</button>
+            
+            <a href="/login"> Go back </a>
+
+
+        </div>
+
+
+        </body>
+
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code {
+    private string username;
+    private string password;
+    private int BirthYear;
+    private string errorMessage;
+
+
+    public async Task RegisterUser()
+    {
+       await UserInterface.AddUser(new User()
+        {
+            UserName = username,
+            BirthYear = BirthYear,
+            pass = password,
+            SecurityLevel = 1
+        });
+        NavigationManager.NavigateTo("/login");
+    }
+
+
+
+
+}

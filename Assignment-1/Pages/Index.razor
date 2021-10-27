@@ -1,0 +1,76 @@
+@page "/"
+@using Assignment_1.Data
+@using Models
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ITFamilyManager FamilyManager;
+@inject NavigationManager NavigationManager;
+
+<AuthorizeView>
+    <h3>Families</h3>
+
+    @if (AllFamilies == null)
+    {
+        <p>
+            <em>Loading... </em>
+        </p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Family Id</th>
+                <th>Street Name</th>
+                <th>House nr</th>
+                <th>Adults</th>
+                <th>Children</th>
+                <th>Pets</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            @foreach (var family in AllFamilies)
+            {
+                <tr>
+
+                    <td>@family.Id</td>
+                    <td>@family.StreetName</td>
+                    <td>@family.HouseNumber</td>
+                    <td>@family.Adults.Count</td>
+                    <td>@family.Children.Count</td>
+                    <td>@family.Pets.Count</td>
+
+                    <td>
+                        <button @onclick="@((() => Inspect(family.Id)))">
+                            <i class="oi oi-magnifying-glass" style="color: red"></i>
+                        </button>
+                    </td>
+
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    
+</AuthorizeView>
+
+
+@code
+{
+    private IList<Family> AllFamilies;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        AllFamilies = FamilyManager.getFamilies();
+    }
+
+    private void Inspect(int id)
+    {
+        NavigationManager.NavigateTo($"Inspect/{id}");
+    }
+
+
+
+
+}

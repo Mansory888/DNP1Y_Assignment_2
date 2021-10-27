@@ -1,0 +1,116 @@
+﻿@page "/ManageAdults"
+@using Assignment_1.Data
+@using Models
+@inject ITFamilyManager FamilyManager;
+@inject NavigationManager NavigationManager;
+
+
+<h2>Manage Families</h2>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col">
+            <EditForm Model="@NewFamily" OnValidSubmit="AddFamily">
+                <DataAnnotationsValidator/>
+                <ValidationSummary/>
+                <div class="container">
+                    <h3 style="margin-top: 40px">Add Family</h3>
+
+
+                    <div class="form-group">
+
+                        <div class="form-group" style="margin-top: 19px">
+                            Street Name: <br/>
+                            <InputText @bind-Value="NewFamily.StreetName"></InputText>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        House Number: <br/>
+                        <InputNumber @bind-Value="NewFamily.HouseNumber"></InputNumber>
+                    </div>
+
+
+                    <p style="margin-top: 35px" class="actions">
+                        <button class="btn btn-outline-dark" type="submit">Add</button>
+                    </p>
+                </div>
+            </EditForm>
+
+            <div class="RemoveFamily" style="margin-top: 30px ">
+                <h3>Remove Family</h3>
+
+                <form >
+                    <label>Family Id:</label>
+                    <select @bind="toDeleteFamilyId">
+                        @foreach (var familiy in Families)
+                        {
+                            <option >@familiy.Id</option>
+                        }
+                    </select>
+                </form>
+
+                <button style="margin-top: 10px" class="btn btn-outline-dark" @onclick="DeleteFamily">Remove</button>
+            </div>
+        </div>
+
+        <div class="col">
+            <form >
+                <label>Select what do you want to add: </label>
+                <select @bind="Option">
+                    <option >Adult</option>
+                    <option >Child</option>
+                    <option >Pet</option>
+                </select>
+            </form>
+
+            @if (Option.Equals("Adult"))
+            {
+                <AddAdult></AddAdult>
+            }
+            else if (Option.Equals("Child"))
+            {
+                <AddChild/>
+            }
+            else if (Option.Equals("Pet"))
+            {
+                <AddPet></AddPet>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private int toDeleteFamilyId;
+    private string Option = "";
+    private Family NewFamily = new Family();
+
+
+    private IList<Family> Families;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Families = FamilyManager.getFamilies();
+    }
+
+
+    private void DeleteFamily()
+    {
+        FamilyManager.RemoveFamily(toDeleteFamilyId);
+        NavigationManager.NavigateTo("/");
+    }
+
+    private void AddFamily()
+    {
+        NewFamily.Id = Families.Max(t => t.Id) +1;
+        NewFamily.Adults = new List<Adult>();
+        NewFamily.Children = new List<Child>();
+        NewFamily.Pets = new List<Pet>();
+        
+        FamilyManager.AddFamily(NewFamily);
+        NavigationManager.NavigateTo("/");
+    }
+
+}

@@ -1,0 +1,130 @@
+﻿@page "/Inspect/{id:int}"
+@using Assignment_1.Data
+@using Models
+@inject ITFamilyManager FamilyManager;
+
+<AuthorizeView>
+    <h3>Inspect family by id: @id</h3>
+
+    @if (FamilyInspected == null || adults == null || children == null || pets == null)
+    {
+        <em>Family could not be loaded!</em>
+    }
+    else
+    {
+        <h2>Adults</h2>
+        <table class="table ">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Hair Color</th>
+                <th>Eye Color</th>
+                <th>Age</th>
+                <th>Weight</th>
+                <th>Height</th>
+                <th>Sex</th>
+                <th>Job</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var adult in adults)
+            {
+                <tr>
+                    <td>@adult.FirstName</td>
+                    <td>@adult.LastName</td>
+                    <td>@adult.HairColor</td>
+                    <td>@adult.EyeColor</td>
+                    <td>@adult.Age</td>
+                    <td>@adult.Weight</td>
+                    <td>@adult.Height</td>
+                    <td>@adult.Sex</td>
+                    <td>@string.Join(",", adult.JobTitle)</td>
+
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <h2 style="margin-top: 50px">Children</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Hair Color</th>
+                <th>Eye Color</th>
+                <th>Age</th>
+                <th>Weight</th>
+                <th>Height</th>
+                <th>Sex</th>
+                <th>Interest</th>
+                <th>Pets</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var child in children)
+            {
+                <tr>
+                    <td>@child.FirstName</td>
+                    <td>@child.LastName</td>
+                    <td>@child.HairColor</td>
+                    <td>@child.EyeColor</td>
+                    <td>@child.Age</td>
+                    <td>@child.Weight</td>
+                    <td>@child.Height</td>
+                    <td>@child.Sex</td>
+                    <td>@string.Join(",", child.Interests)</td>
+                    <td>@string.Join(",", child.Pets)</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+
+        <h2 style="margin-top: 50px">Pets</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Species</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var pet in pets)
+            {
+                <tr>
+                    <td>@pet.Species</td>
+                    <td>@pet.Name</td>
+                    <td>@pet.Age</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+
+</AuthorizeView>
+
+
+@code {
+
+    [Parameter]
+    public int id { get; set; }
+
+    private Family FamilyInspected;
+
+    private IList<Adult> adults;
+    private IList<Child> children;
+    private IList<Pet> pets;
+    
+
+    protected override async Task OnInitializedAsync()
+    {
+        FamilyInspected = FamilyManager.get(id);
+        adults = FamilyInspected.Adults;
+        children = FamilyInspected.Children;
+        pets = FamilyInspected.Pets;
+    }
+
+}
