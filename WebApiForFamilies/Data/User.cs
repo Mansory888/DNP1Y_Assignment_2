@@ -1,9 +1,11 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Assignment_1.Data
 {
     public class User
     {
+        [Key]
         [JsonPropertyName("username")]
         public string UserName { get; set; }
         

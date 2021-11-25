@@ -11,7 +11,6 @@ C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\bin\Debug\net5.0\ref\Assignm
 C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\bin\Debug\net5.0\Assignment-1.pdb
 C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\bin\Debug\net5.0\Assignment-1.Views.dll
 C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\bin\Debug\net5.0\Assignment-1.Views.pdb
-C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\obj\Debug\net5.0\Assignment-1.csprojAssemblyReference.cache
 C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\obj\Debug\net5.0\Assignment-1.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\obj\Debug\net5.0\Assignment-1.AssemblyInfoInputs.cache
 C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\obj\Debug\net5.0\Assignment-1.AssemblyInfo.cs
@@ -72,3 +71,4 @@ C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\obj\Debug\net5.0\ref\Assignm
 C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\obj\Debug\net5.0\Assignment-1.pdb
 C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\obj\Debug\net5.0\Assignment-1.genruntimeconfig.cache
 C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\obj\Debug\net5.0\Assignment-1.csproj.CopyComplete
+C:\Users\Nick\RiderProjects\Assigmnets\Assignment-1\obj\Debug\net5.0\Assignment-1.csproj.AssemblyReference.cache

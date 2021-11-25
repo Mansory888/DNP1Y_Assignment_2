@@ -12,7 +12,7 @@ namespace Assignment_1.Data
         void AddAdult(Adult adult, int id);
         void AddPet(Pet pet, int id);
         void AddChild(Child child, int id);
-        Task<Family> RemoveFamily(int FamilyId);
+        Task RemoveFamily(int FamilyId);
         Task<Family> AddFamily(Family family);
         Task<Family> UpdateFamily(Family family);
 

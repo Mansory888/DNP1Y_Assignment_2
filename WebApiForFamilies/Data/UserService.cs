@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using WebApiForFamilies.Persistance;
 
 namespace Assignment_1.Data
 {
     public class UserService : ITUserInterface
     {
-        private List<User> users;
+        private static List<User> users;
+        private static FamilyDBContext Context = new FamilyDBContext();
 
         public UserService()
         {
             users = new List<User>();
-            users.Add(new User()
-            {
-                UserName = "admin",
-                pass = "1234",
-                BirthYear = 2001,
-                SecurityLevel = 5
-            });
+            LoadUserFromDb(Context);
+            
         }
 
         public async Task<User> AddUser(User user)
         {
-            users.Add(user);
-            return user;
+            EntityEntry<User> newlyAdded = await Context.Users.AddAsync(user);
+            await Context.SaveChangesAsync();
+            return newlyAdded.Entity;
         }
         
         public async Task<IList<User>> getUsers()
@@ -48,6 +48,11 @@ namespace Assignment_1.Data
             }
             
             return toValidate;
+        }
+
+        private static async Task LoadUserFromDb(FamilyDBContext familyDbContext)
+        {
+            users = await familyDbContext.Users.ToListAsync();
         }
     }
 }

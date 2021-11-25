@@ -116,7 +116,14 @@ using Models;
 
     protected override async Task OnInitializedAsync()
     {
-        Families = FamilyManager.getFamilies();
+        if (FamilyManager.getFamilies() == null)
+        {
+            Families = new List<Family>();
+        }
+        else
+        {
+            Families = FamilyManager.getFamilies();   
+        }
     }
 
 

@@ -85,7 +85,7 @@ namespace Assignment_1.Data
             WriteToFile();
         }
 
-        public async Task<Family> RemoveFamily(int FamilyId)
+        public async Task RemoveFamily(int FamilyId)
         {
             //Family f = null;
             foreach (var family in families.ToList())
@@ -97,7 +97,6 @@ namespace Assignment_1.Data
                 }
             }
             WriteToFile();
-            return null;
         }
 
         public async Task<Family> AddFamily(Family family)

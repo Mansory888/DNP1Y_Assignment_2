@@ -8,6 +8,8 @@ namespace Models
         public string JobTitle { get; set; }
         public int Salary { get; set; }
 
+        public ICollection<Adult> Adults { get; set; }
+
         public override string ToString()
         {
             return JobTitle + ", Salary: " + Salary;

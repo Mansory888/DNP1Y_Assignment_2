@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Models {
 public class Person {
-    
+    [Key]
     public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
@@ -12,6 +12,11 @@ public class Person {
     public float Weight { get; set; }
     public int Height { get; set; }
     public string Sex { get; set; }
+    
+    public override string ToString()
+    {
+        return Id + " " + FirstName + " " + LastName + " ";
+    }
 }
 
 

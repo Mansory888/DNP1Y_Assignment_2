@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using WebApiForFamilies.Persistance;
 
 namespace WebApiForFamilies
 {
@@ -32,8 +33,14 @@ namespace WebApiForFamilies
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebApiForFamilies", Version = "v1"});
             });
-            services.AddSingleton<ITFamilyManager, FamilyManager>();
+            
+            //services.AddSingleton<ITFamilyManager, FamilyManager>();
             services.AddSingleton<ITUserInterface, UserService>();
+            
+            services.AddControllers();
+            services.AddDbContext<FamilyDBContext>();
+            services.AddScoped<ITFamilyManager, DBFamilyManager>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

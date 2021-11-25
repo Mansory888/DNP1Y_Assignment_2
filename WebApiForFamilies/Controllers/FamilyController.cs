@@ -31,6 +31,9 @@ namespace WebApiForFamilies.Controllers
                     families = families.Where(f=>f.Id==familyId).ToList();
                 }
 
+                Console.WriteLine(families.Count);
+                Console.WriteLine(families[0].HouseNumber + " "+ families[0].StreetName);
+
                 return Ok(families);
             }
             catch (Exception e)
