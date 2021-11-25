@@ -1,10 +1,11 @@
-# DNP1Y_Assignment_1
+# DNP1Y_Assignment_2-3
 
 ## The system:
 In this assignment you will create a Blazor-server web page to manage data and view statistics about families.
 The adults have jobs. The children have interests, and pets. 
 
-The data will be saved separately in a server and the server/client connection will be done in Rest
+Assignmet2 - The data will be saved separately in a server and the server/client connection will be done in Rest
+Assignmet3 - The data is saved into the database
 
 ## Minimum requirements:
 - Be able to add a new Adult to persistent storage (i.e. the file, through the FileContext class).
